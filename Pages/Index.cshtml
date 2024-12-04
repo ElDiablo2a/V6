@@ -1,0 +1,54 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="authContainer">
+        <!-- Page d'inscription -->
+        <div id="signupPage" style="display:none;">
+            <h2>Créer un compte</h2>
+            <input type="text" id="signupUsername" placeholder="Nom d'utilisateur" />
+            <input type="password" id="signupPassword" placeholder="Mot de passe" />
+            <button onclick="signupUser()">S'inscrire</button>
+            <p>Déjà un compte ? <a href="javascript:showLoginPage()">Se connecter</a></p>
+        </div>
+
+        <!-- Page de connexion -->
+        <div id="loginPage">
+            <h2>Se connecter</h2>
+            <input type="text" id="loginUsername" placeholder="Nom d'utilisateur" />
+            <input type="password" id="loginPassword" placeholder="Mot de passe" />
+            <button onclick="loginUser()">Se connecter</button>
+            <p>Pas de compte ? <a href="page2.html">Créer un compte</a></p>
+        </div>
+    </div>
+
+    <!-- Page principale avec posts -->
+    <div id="mainPage" style="display:none;">
+        <h1>Bienvenue sur Twitter Clone</h1>
+        <p id="username"></p> <!-- Afficher le nom de l'utilisateur ici -->
+        <button onclick="logoutUser()">Se déconnecter</button>
+        
+        <h2>Créer un post</h2>
+        <input type="text" id="postContent" placeholder="Quoi de neuf ?" />
+        <input type="file" id="postImage" accept="image/*" />
+        <button onclick="createPost()">Publier</button>
+
+        <h2>Posts</h2>
+        <div id="posts"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
